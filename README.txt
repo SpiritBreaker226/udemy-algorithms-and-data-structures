@@ -1,0 +1,1 @@
+The course is from the [Udemy](https://www.udemy.com) and is called [JavaScript Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
