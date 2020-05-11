@@ -31,3 +31,21 @@ console.log(
 )
 console.log('return 0 expect', countUniqueValues([]))
 console.log('return 4 expect', countUniqueValues([-2, -1, -1, 0, 1]))
+
+/*
+// Instructor solution to compare
+function countUniqueValues(arr) {
+  if (arr.length === 0) return 0
+
+  let index = 0
+
+  for (let indexArr = 1; indexArr < arr.length; indexArr++) {
+    if (arr[index] !== arr[indexArr]) {
+      index++
+      arr[index] = arr[indexArr]
+    }
+  }
+
+  return index + 1
+}
+*/
