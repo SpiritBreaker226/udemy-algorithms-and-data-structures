@@ -1,4 +1,5 @@
 const countUniqueValues = require('../../problem-solving/multiple-pointers-challenge/count-unique')
+const areThereDuplicates = require('../../problem-solving/multiple-pointers-challenge/are-there-duplicates')
 
 describe('multiple pointers', () => {
   describe('for challenge count unique', () => {
@@ -16,6 +17,20 @@ describe('multiple pointers', () => {
 
     it('should return 4', () => {
       expect(countUniqueValues([-2, -1, -1, 0, 1])).toEqual(4)
+    })
+  })
+
+  describe('for challenge are there duplicates', () => {
+    it('should be false for not having duplicates', () => {
+      expect(areThereDuplicates(1, 2, 3)).toBeFalsy()
+    })
+
+    it('should be true for having duplicate numbers', () => {
+      expect(areThereDuplicates(1, 2, 2)).toBeTruthy()
+    })
+
+    it('should be true for having duplicate letters', () => {
+      expect(areThereDuplicates('a', 'b', 'c', 'd', 'a')).toBeTruthy()
     })
   })
 })
