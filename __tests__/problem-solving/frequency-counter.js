@@ -1,4 +1,5 @@
 const validAnagram = require('../../problem-solving/frequency-counter-challenge/anagrams')
+const sameFrequency = require('../../problem-solving/frequency-counter-challenge/same-frequency')
 
 describe('frequency counter', () => {
   describe('for challenge anagrams', () => {
@@ -28,6 +29,20 @@ describe('frequency counter', () => {
 
     it('should be true for texttwisttime example', () => {
       expect(validAnagram('texttwisttime', 'timetwisttext')).toBeTruthy()
+    })
+  })
+
+  describe('for challenge same frequency', () => {
+    it('should be false for the same frequency for small numbers', () => {
+      expect(sameFrequency(182, 281)).toBeTruthy()
+    })
+
+    it('should be false for not the same frequency', () => {
+      expect(sameFrequency(34, 14)).toBeFalsy()
+    })
+
+    it('should be false for the same frequency for large numbers', () => {
+      expect(sameFrequency(3589578, 5879385)).toBeTruthy()
     })
   })
 })
