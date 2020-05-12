@@ -32,17 +32,6 @@ function validAnagram(str1, str2) {
   return true
 }
 
-console.log('blank example', validAnagram('', '')) // ecpect: true
-console.log('aaz example', validAnagram('aaz', 'zza')) // ecpect: false
-console.log('anagram example', validAnagram('anagram', 'nagaram')) // ecpect: true
-console.log('rat example', validAnagram('rat', 'car')) // ecpect: false
-console.log('awesome example', validAnagram('awesome', 'awesom')) // ecpect: false
-console.log('qwerty example', validAnagram('qwerty', 'qeywrt')) // ecpect: true
-console.log(
-  'texttwisttime example',
-  validAnagram('texttwisttime', 'timetwisttext')
-) // ecpect: true
-
 /*
 // Instructor solution to compare
 function validAnagram(first, second) {
@@ -71,3 +60,5 @@ function validAnagram(first, second) {
   return true
 }
 */
+
+module.exports = validAnagram
