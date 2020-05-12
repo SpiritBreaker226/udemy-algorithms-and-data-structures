@@ -1,0 +1,12 @@
+{
+  "name": "algorithms-and-data-structures",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
