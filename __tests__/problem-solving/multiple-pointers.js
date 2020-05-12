@@ -1,5 +1,6 @@
 const countUniqueValues = require('../../problem-solving/multiple-pointers-challenge/count-unique')
 const areThereDuplicates = require('../../problem-solving/multiple-pointers-challenge/are-there-duplicates')
+const averagePair = require('../../problem-solving/multiple-pointers-challenge/average-pair')
 
 describe('multiple pointers', () => {
   describe('for challenge count unique', () => {
@@ -31,6 +32,24 @@ describe('multiple pointers', () => {
 
     it('should be true for having duplicate letters', () => {
       expect(areThereDuplicates('a', 'b', 'c', 'd', 'a')).toBeTruthy()
+    })
+  })
+
+  describe('for challenge are average pair', () => {
+    it('should be true for matching any of the small input array', () => {
+      expect(averagePair([1, 2, 3], 2.5)).toBeTruthy()
+    })
+
+    it('should be true for matching any of the large input array', () => {
+      expect(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8)).toBeTruthy()
+    })
+
+    it('should be false for not matching any of the input array', () => {
+      expect(averagePair([-1, 0, 3, 4, 5, 6], 4.1)).toBeFalsy()
+    })
+
+    it('should be false for empty array', () => {
+      expect(averagePair([], 4)).toBeFalsy()
     })
   })
 })
