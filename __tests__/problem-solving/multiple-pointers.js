@@ -1,6 +1,7 @@
 const countUniqueValues = require('../../problem-solving/multiple-pointers-challenge/count-unique')
 const areThereDuplicates = require('../../problem-solving/multiple-pointers-challenge/are-there-duplicates')
 const averagePair = require('../../problem-solving/multiple-pointers-challenge/average-pair')
+const isSubsequence = require('../../problem-solving/multiple-pointers-challenge/is-subsequence')
 
 describe('multiple pointers', () => {
   describe('for challenge count unique', () => {
@@ -50,6 +51,24 @@ describe('multiple pointers', () => {
 
     it('should be false for empty array', () => {
       expect(averagePair([], 4)).toBeFalsy()
+    })
+  })
+
+  describe('for challenge isSubsequence', () => {
+    it('should be true for simple word', () => {
+      // expect(isSubsequence('hello', 'hello world')).toBeTruthy()
+    })
+
+    it('should be true for smaller', () => {
+      expect(isSubsequence('sing', 'sting')).toBeTruthy()
+    })
+
+    it('should be true for large string', () => {
+      expect(isSubsequence('abc', 'abracaddabra')).toBeTruthy()
+    })
+
+    it('should be false for misorder string', () => {
+      expect(isSubsequence('abc', 'acb')).toBeFalsy()
     })
   })
 })
