@@ -1,5 +1,6 @@
 const power = require('../../recursions/challenges/power')
 const factorial = require('../../recursions/challenges/factorial')
+const productOfArray = require('../../recursions/challenges/product-of-array')
 
 describe('recursions', () => {
   describe('for challenge power', () => {
@@ -31,6 +32,16 @@ describe('recursions', () => {
 
     it('should be 5040 for factorial 7!', () => {
       expect(factorial(7)).toEqual(5040)
+    })
+  })
+
+  describe('for challenge product of array', () => {
+    it('should be 6 for product of array [1,2,3]', () => {
+      expect(productOfArray([1, 2, 3])).toEqual(6)
+    })
+
+    it('should be 60 for product of array [1,2,3,10]', () => {
+      expect(productOfArray([1, 2, 3, 10])).toEqual(60)
     })
   })
 })
