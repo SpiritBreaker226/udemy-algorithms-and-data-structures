@@ -2,6 +2,7 @@ const power = require('../../recursions/challenges/power')
 const factorial = require('../../recursions/challenges/factorial')
 const productOfArray = require('../../recursions/challenges/product-of-array')
 const recursiveRange = require('../../recursions/challenges/recursive-range')
+const fib = require('../../recursions/challenges/fib')
 
 describe('recursions', () => {
   describe('for challenge power', () => {
@@ -53,6 +54,26 @@ describe('recursions', () => {
 
     it('should be 55 for sum upto 10', () => {
       expect(recursiveRange(10)).toEqual(55)
+    })
+  })
+
+  describe('for challenge fib', () => {
+    // fib(35) //
+
+    it('should be 3 for fib 4', () => {
+      expect(fib(4)).toEqual(3)
+    })
+
+    it('should be 55 for fib 10', () => {
+      expect(fib(10)).toEqual(55)
+    })
+
+    it('should be 317811 for fib 28', () => {
+      expect(fib(28)).toEqual(317811)
+    })
+
+    it('should be 9227465 for fib 35', () => {
+      expect(fib(35)).toEqual(9227465)
     })
   })
 })
