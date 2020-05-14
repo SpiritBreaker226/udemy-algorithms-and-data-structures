@@ -1,6 +1,7 @@
 const power = require('../../recursions/challenges/power')
 const factorial = require('../../recursions/challenges/factorial')
 const productOfArray = require('../../recursions/challenges/product-of-array')
+const recursiveRange = require('../../recursions/challenges/recursive-range')
 
 describe('recursions', () => {
   describe('for challenge power', () => {
@@ -42,6 +43,16 @@ describe('recursions', () => {
 
     it('should be 60 for product of array [1,2,3,10]', () => {
       expect(productOfArray([1, 2, 3, 10])).toEqual(60)
+    })
+  })
+
+  describe('for challenge recursive range', () => {
+    it('should be 21 for sum upto 6', () => {
+      expect(recursiveRange(6)).toEqual(21)
+    })
+
+    it('should be 55 for sum upto 10', () => {
+      expect(recursiveRange(10)).toEqual(55)
     })
   })
 })
