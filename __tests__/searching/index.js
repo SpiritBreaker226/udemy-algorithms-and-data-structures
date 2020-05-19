@@ -1,5 +1,6 @@
 const linearSearch = require('../../searching/linear-search')
 const binarySearch = require('../../searching/binary-search')
+const naiveStringSearch = require('../../searching/naive-string-search')
 
 describe('searching', () => {
   describe('for linear', () => {
@@ -130,6 +131,30 @@ describe('searching', () => {
           100
         )
       ).toEqual(-1)
+    })
+  })
+
+  describe('for naive string', () => {
+    it('should return count 1', () => {
+      expect(naiveStringSearch('Harold said haha in hamburg', 'haha')).toEqual(
+        1
+      )
+    })
+
+    it('should return count 2', () => {
+      expect(
+        naiveStringSearch('a horse my kingdom for a horse', 'horse')
+      ).toEqual(2)
+    })
+
+    it('should return count 3', () => {
+      expect(naiveStringSearch('omgkindingomgnoreallyomg', 'omg')).toEqual(3)
+    })
+
+    it('should return index 0', () => {
+      expect(
+        naiveStringSearch('roses are red violets are blue', 'yellow')
+      ).toEqual(0)
     })
   })
 })
