@@ -5,6 +5,8 @@
 
 // Time Complexity: O(n^2)
 
+const swap = require('./swap')
+
 function bubbleSort(numbers) {
   let newNumbers = [...numbers]
   let noSwap
@@ -35,13 +37,6 @@ function bubbleSort(numbers) {
   }
 
   return newNumbers
-}
-
-const swap = (array, index1, index2) => {
-  const temp = array[index1]
-
-  array[index1] = array[index2]
-  array[index2] = temp
 }
 
 module.exports = bubbleSort
