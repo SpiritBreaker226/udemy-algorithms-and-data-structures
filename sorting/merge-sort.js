@@ -8,22 +8,33 @@
 
 // Time Complexity: O(n log n)
 
-function mergeSort(aNumbers, bNumbers = []) {
-  if (aNumbers.length <= 1 && bNumbers.length <= 1) {
-    return merge(aNumbers, bNumbers)
-  }
+// function mergeSort(aNumbers, bNumbers = []) {
+//   if (aNumbers.length <= 1 && bNumbers.length <= 1) {
+//     return merge(aNumbers, bNumbers)
+//   }
 
-  const aMid = Math.floor(aNumbers.length / 2)
-  const aFirstHalf = aNumbers.slice(0, aMid)
-  const aSecondHalf = aNumbers.slice(aMid, aNumbers.length)
-  const aMergeSorted = mergeSort(aFirstHalf, aSecondHalf)
+//   const aMid = Math.floor(aNumbers.length / 2)
+//   const aFirstHalf = aNumbers.slice(0, aMid)
+//   const aSecondHalf = aNumbers.slice(aMid)
+//   const aMergeSorted = mergeSort(aFirstHalf, aSecondHalf)
 
-  const bMid = Math.floor(bNumbers.length / 2)
-  const bFirstHalf = bNumbers.slice(0, bMid)
-  const bSecondHalf = bNumbers.slice(bMid, bNumbers.length)
-  const bMergeSorted = mergeSort(bFirstHalf, bSecondHalf)
+//   const bMid = Math.floor(bNumbers.length / 2)
+//   const bFirstHalf = bNumbers.slice(0, bMid)
+//   const bSecondHalf = bNumbers.slice(bMid)
+//   const bMergeSorted = mergeSort(bFirstHalf, bSecondHalf)
 
-  return merge(aMergeSorted, bMergeSorted)
+//   return merge(aMergeSorted, bMergeSorted)
+// }
+
+// Instructor solution to compare
+function mergeSort(numbers) {
+  if (numbers.length <= 1) return numbers
+
+  const mid = Math.floor(numbers.length / 2)
+  const firstHalf = mergeSort(numbers.slice(0, mid))
+  const secondHalf = mergeSort(numbers.slice(mid))
+
+  return merge(firstHalf, secondHalf)
 }
 
 // Time Complexity: O(n + m)
