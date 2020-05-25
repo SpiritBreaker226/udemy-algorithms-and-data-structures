@@ -2,6 +2,7 @@ const bubbleSort = require('../../sorting/bubble-sort')
 const selectionSort = require('../../sorting/selection-sort')
 const insertionSort = require('../../sorting/insertion-sort')
 const { mergeSort, merge } = require('../../sorting/merge-sort')
+const { quickSort, pivotHelper } = require('../../sorting/quick-sort')
 
 describe('sorting', () => {
   describe('for bubble sort', () => {
@@ -151,6 +152,35 @@ describe('sorting', () => {
               100,
             ])
           })
+        })
+      })
+    })
+
+    describe('for quick sort', () => {
+      it('should return a sorted short array', () => {
+        expect(quickSort([29, 6, 54, 39, 28, 19, 25])).toEqual([
+          6,
+          19,
+          25,
+          28,
+          29,
+          39,
+          54,
+        ])
+      })
+
+      it('should return a sorted large array', () => {
+        expect(
+          quickSort([100, 50, 82, 69, 25, 77, 99, 32, 75, 45, 10])
+        ).toEqual([10, 25, 32, 45, 50, 69, 75, 77, 82, 99, 100])
+      })
+
+      describe('on pivot helper', () => {
+        it('should return index of pivot', () => {
+          const numbers = [45, 50, 82, 25, 77, 32, 75, 10]
+
+          expect(pivotHelper(numbers)).toEqual(3)
+          expect(numbers).toEqual([10, 25, 32, 45, 77, 82, 75, 50])
         })
       })
     })
