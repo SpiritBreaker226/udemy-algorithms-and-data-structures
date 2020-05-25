@@ -20,6 +20,19 @@ function quickSort(numbers) {
   return [...leftSideArray, numbers[pivotIndex], ...rightSideArray]
 }
 
+// Another way
+
+// function quickSort(numbers, leftIndex = 0, rightIndex = numbers.length - 1) {
+//   if (leftIndex < rightIndex) {
+//     const pivotIndex = pivotHelper(numbers, leftIndex, rightIndex)
+
+//     quickSort(numbers, leftIndex, pivotIndex - 1)
+//     quickSort(numbers, pivotIndex + 1, rightIndex)
+//   }
+
+//   return numbers
+// }
+
 // Time Complexity: O(n)
 
 function pivotHelper(numbers, startIndex = 0, endIndex = numbers.length - 1) {
