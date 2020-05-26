@@ -3,6 +3,7 @@ const selectionSort = require('../../sorting/selection-sort')
 const insertionSort = require('../../sorting/insertion-sort')
 const { mergeSort, merge } = require('../../sorting/merge-sort')
 const { quickSort, pivotHelper } = require('../../sorting/quick-sort')
+const { digitCount, getDigit, mostDigits } = require('../../sorting/radix-sort')
 
 describe('sorting', () => {
   describe('for bubble sort', () => {
@@ -181,6 +182,50 @@ describe('sorting', () => {
 
           expect(pivotHelper(numbers)).toEqual(3)
           expect(numbers).toEqual([10, 25, 32, 45, 77, 82, 75, 50])
+        })
+      })
+    })
+
+    describe('for radix sort', () => {
+      describe('on getDigit', () => {
+        it('should return zero when place does not exist', () => {
+          expect(getDigit(1, 2)).toEqual(0)
+        })
+
+        it('should return right side digit', () => {
+          expect(getDigit(12345, 1)).toEqual(4)
+        })
+      })
+
+      describe('on digitCount', () => {
+        it('should return 1 on zero', () => {
+          expect(digitCount(0)).toEqual(1)
+        })
+
+        it('should return 1', () => {
+          expect(digitCount(1)).toEqual(1)
+        })
+
+        it('should return 25', () => {
+          expect(digitCount(25)).toEqual(2)
+        })
+
+        it('should return 1234', () => {
+          expect(digitCount(1234)).toEqual(4)
+        })
+      })
+
+      describe('on mostDigits', () => {
+        it('should return 4', () => {
+          expect(mostDigits([1234, 56, 7])).toEqual(4)
+        })
+
+        it('should return 5', () => {
+          expect(mostDigits([1, 11111, 1])).toEqual(5)
+        })
+
+        it('should return 2', () => {
+          expect(mostDigits([12, 34, 56, 78])).toEqual(2)
         })
       })
     })
