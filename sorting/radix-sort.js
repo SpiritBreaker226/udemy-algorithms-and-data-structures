@@ -1,4 +1,7 @@
 // ===============================================================
+// Write a function called radixSort which accepts a
+// number array and returns the sorted version of that array
+
 // Write a function called getDigit which returns the digit in num
 // at the given place value
 
@@ -9,6 +12,26 @@
 // numbers, returns the number of digits in the largest numbers in
 // the list.
 // ===============================================================
+
+// Time Complexity: O(nk)
+
+function radixSort(numbers) {
+  const numberWithMostDigits = mostDigits(numbers)
+
+  for (let digitIndex = 0; digitIndex < numberWithMostDigits; digitIndex++) {
+    let buckets = Array.from({ length: 10 }, () => [])
+
+    for (let numberIndex = 0; numberIndex < numbers.length; numberIndex++) {
+      const digit = getDigit(numbers[numberIndex], digitIndex)
+
+      buckets[digit].push(numbers[numberIndex])
+    }
+
+    numbers = buckets.flat()
+  }
+
+  return numbers
+}
 
 /**
  * Foumla works like this:
@@ -52,6 +75,7 @@ function mostDigits(numbers) {
 }
 
 module.exports = {
+  radixSort,
   digitCount,
   getDigit,
   mostDigits,

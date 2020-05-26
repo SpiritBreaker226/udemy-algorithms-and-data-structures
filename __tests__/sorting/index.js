@@ -3,7 +3,12 @@ const selectionSort = require('../../sorting/selection-sort')
 const insertionSort = require('../../sorting/insertion-sort')
 const { mergeSort, merge } = require('../../sorting/merge-sort')
 const { quickSort, pivotHelper } = require('../../sorting/quick-sort')
-const { digitCount, getDigit, mostDigits } = require('../../sorting/radix-sort')
+const {
+  radixSort,
+  digitCount,
+  getDigit,
+  mostDigits,
+} = require('../../sorting/radix-sort')
 
 describe('sorting', () => {
   describe('for bubble sort', () => {
@@ -187,6 +192,24 @@ describe('sorting', () => {
     })
 
     describe('for radix sort', () => {
+      it('should return a sorted short array', () => {
+        expect(radixSort([29, 6, 54, 39, 28, 19, 25])).toEqual([
+          6,
+          19,
+          25,
+          28,
+          29,
+          39,
+          54,
+        ])
+      })
+
+      it('should return a sorted large array', () => {
+        expect(
+          radixSort([100, 50, 82, 69, 25, 77, 99, 32, 75, 45, 10])
+        ).toEqual([10, 25, 32, 45, 50, 69, 75, 77, 82, 99, 100])
+      })
+
       describe('on getDigit', () => {
         it('should return zero when place does not exist', () => {
           expect(getDigit(1, 2)).toEqual(0)
