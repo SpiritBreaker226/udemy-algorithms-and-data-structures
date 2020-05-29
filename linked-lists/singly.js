@@ -71,4 +71,19 @@ class SinglyLinkedList {
 
     return currentHead
   }
+
+  unshift(value) {
+    const node = new Node(value)
+
+    if (this.length === 0) {
+      this.tail = node
+    } else {
+      node.next = this.head
+    }
+
+    this.head = node
+    this.length++
+
+    return this.list
+  }
 }
