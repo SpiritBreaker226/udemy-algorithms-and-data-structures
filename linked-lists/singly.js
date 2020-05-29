@@ -112,6 +112,24 @@ class SinglyLinkedList {
     return removeNode
   }
 
+  reverse() {
+    let nextNode = null
+    let prevNode = null
+    let node = this.head
+
+    this.head = this.tail
+    this.tail = node
+
+    while (node) {
+      nextNode = node.next
+      node.next = prevNode
+      prevNode = node
+      node = nextNode
+    }
+
+    return this.list
+  }
+
   set(index, value) {
     const node = this.get(index)
 
