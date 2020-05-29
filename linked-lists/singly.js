@@ -15,6 +15,22 @@ class SinglyLinkedList {
     this.length = 0
   }
 
+  get(index) {
+    if (index < 0) return null
+
+    let currentNode = this.head
+
+    for (let counter = 0; counter < this.length; counter++) {
+      if (index === counter) {
+        return currentNode
+      }
+
+      currentNode = currentNode.next
+    }
+
+    return null
+  }
+
   pop() {
     if (this.length === 0) return undefined
 
