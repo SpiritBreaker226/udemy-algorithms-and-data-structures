@@ -71,6 +71,18 @@ class SinglyLinkedList {
     return this.list
   }
 
+  set(index, value) {
+    const node = this.get(index)
+
+    if (node) {
+      node.value = value
+
+      return true
+    }
+
+    return false
+  }
+
   shift() {
     if (this.length === 0) return undefined
 
