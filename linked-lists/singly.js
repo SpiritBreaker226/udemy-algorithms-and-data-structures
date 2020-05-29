@@ -15,6 +15,31 @@ class SinglyLinkedList {
     this.length = 0
   }
 
+  pop() {
+    if (this.length === 0) return undefined
+
+    this.length--
+
+    const currentTail = this.tail
+    let preTailNode = null
+    let currentNode = this.head
+
+    while (currentNode.next) {
+      preTailNode = currentNode
+      currentNode = currentNode.next
+    }
+
+    if (this.length === 0) {
+      this.head = null
+      this.tail = null
+    } else {
+      this.tail = preTailNode
+      this.tail.next = null
+    }
+
+    return currentTail
+  }
+
   push(value) {
     const node = new Node(value)
 
