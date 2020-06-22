@@ -74,6 +74,63 @@ function merge(aNumbers, bNumbers) {
   return results
 }
 
+// Another Way to do Merge sort by using in place to the main array, which
+// reduces the Space Cmplextiry to O(n).
+
+// Refer: AlgoExpert - https://www.algoexpert.io/questions/Merge%20Sort
+// subscription is required
+
+// function mergeSort(array) {
+//   if (array.length <= 1) return array
+
+//   const auxArray = [...array]
+
+//   mergeSortHelper(array, 0, array.length - 1, auxArray)
+
+//   return array
+// }
+
+// function mergeSortHelper(mainArray, startIndex, endIndex, auxArray) {
+//   if (startIndex === endIndex) return
+
+//   const middleIndex = Math.floor((startIndex + endIndex) / 2)
+
+//   mergeSortHelper(auxArray, startIndex, middleIndex, mainArray)
+//   mergeSortHelper(auxArray, middleIndex + 1, endIndex, mainArray)
+
+//   doMerge(mainArray, startIndex, middleIndex, endIndex, auxArray)
+// }
+
+// function doMerge(mainArray, startIndex, middleIndex, endIndex, auxArray) {
+//   let mainIndex = startIndex
+//   let auxIndex = startIndex
+//   let auxMidIndex = middleIndex + 1
+
+//   while (auxIndex <= middleIndex && auxMidIndex <= endIndex) {
+//     if (auxArray[auxIndex] < auxArray[auxMidIndex]) {
+//       mainArray[mainIndex] = auxArray[auxIndex]
+//       mainIndex++
+//       auxIndex++
+//     } else {
+//       mainArray[mainIndex] = auxArray[auxMidIndex]
+//       mainIndex++
+//       auxMidIndex++
+//     }
+//   }
+
+//   while (auxIndex <= middleIndex) {
+//     mainArray[mainIndex] = auxArray[auxIndex]
+//     mainIndex++
+//     auxIndex++
+//   }
+
+//   while (auxMidIndex <= endIndex) {
+//     mainArray[mainIndex] = auxArray[auxMidIndex]
+//     mainIndex++
+//     auxMidIndex++
+//   }
+// }
+
 module.exports = {
   mergeSort,
   merge,
