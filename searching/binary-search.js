@@ -8,19 +8,19 @@
 
 function binarySearch(numbers, searchingForNum) {
   let low = 1
-  let hight = numbers.length - 1
-  let mid = Math.floor((low + hight) / 2)
+  let high = numbers.length - 1
+  let mid = Math.floor((low + high) / 2)
 
-  while (hight >= low) {
+  while (high >= low) {
     if (numbers[mid] === searchingForNum) {
       return mid
     } else if (searchingForNum > numbers[mid]) {
       low = mid + 1
     } else {
-      hight = mid - 1
+      high = mid - 1
     }
 
-    mid = Math.floor((low + hight) / 2)
+    mid = Math.floor((low + high) / 2)
   }
 
   return -1
