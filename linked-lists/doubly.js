@@ -17,6 +17,26 @@ class DoublyLinkedList {
     this.length = 0
   }
 
+  pop() {
+    if (this.length === 0) return undefined
+
+    const currentTail = this.tail
+
+    if (this.length === 1) {
+      this.head = null
+      this.tail = null
+    } else {
+      this.tail.prev.next = null
+      this.tail = this.tail.prev
+
+      currentTail.prev = null
+    }
+
+    this.length--
+
+    return currentTail
+  }
+
   push(value) {
     const node = new Node(value)
 
