@@ -38,6 +38,36 @@ class DoublyLinkedList {
     return node
   }
 
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false
+
+    if (index === 0) {
+      this.unshift(value)
+
+      return true
+    }
+
+    if (index === this.length) {
+      this.push(value)
+
+      return true
+    }
+
+    const newNode = new Node(value)
+    const beforeNode = this.get(index - 1)
+    const afterNode = beforeNode.next
+
+    if (afterNode) afterNode.prev = newNode
+
+    newNode.next = afterNode
+    beforeNode.next = newNode
+    newNode.prev = beforeNode
+
+    this.length++
+
+    return true
+  }
+
   pop() {
     if (this.length === 0) return undefined
 
