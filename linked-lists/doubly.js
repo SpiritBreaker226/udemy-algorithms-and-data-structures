@@ -17,6 +17,27 @@ class DoublyLinkedList {
     this.length = 0
   }
 
+  get(index) {
+    if (index < 0 || index >= this.length) return null
+
+    let node = this.head
+    const middleIndex = Math.floor(this.length / 2)
+
+    if (index < middleIndex) {
+      for (let listIndex = 0; listIndex !== index; listIndex++) {
+        node = node.next
+      }
+    } else {
+      node = this.tail
+
+      for (let listIndex = this.length - 1; listIndex !== index; listIndex--) {
+        node = node.prev
+      }
+    }
+
+    return node
+  }
+
   pop() {
     if (this.length === 0) return undefined
 
