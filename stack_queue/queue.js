@@ -1,0 +1,49 @@
+// Create a queues from a Linked List
+
+class Node {
+  constructor(value) {
+    this.value = value
+    this.next = null
+  }
+}
+
+class Queue {
+  constructor() {
+    this.first = null
+    this.last = null
+    this.size = 0
+  }
+
+  enqueue(value) {
+    const node = new Node(value)
+
+    if (this.size === 0) {
+      this.first = node
+    } else {
+      this.last.next = node
+    }
+
+    this.last = node
+
+    this.size++
+
+    return this.size
+  }
+
+  dequeue() {
+    if (this.size === 0) return null
+
+    const node = this.first
+
+    if (this.size === 1) {
+      this.first = null
+      this.last = null
+    } else {
+      this.first = node.next
+    }
+
+    this.size--
+
+    return node.value
+  }
+}
