@@ -94,7 +94,7 @@ class SinglyLinkedList {
     this.tail = node
     this.length++
 
-    return this.list
+    return this
   }
 
   remove(index) {
@@ -127,7 +127,7 @@ class SinglyLinkedList {
       node = nextNode
     }
 
-    return this.list
+    return this
   }
 
   set(index, value) {
@@ -171,6 +171,6 @@ class SinglyLinkedList {
     this.head = node
     this.length++
 
-    return this.list
+    return this
   }
 }
