@@ -79,7 +79,7 @@ class SinglyLinkedList {
 
     this.length--
 
-    return currentTail
+    return currentTail.value
   }
 
   push(value) {
@@ -110,7 +110,7 @@ class SinglyLinkedList {
 
     this.length--
 
-    return removeNode
+    return removeNode.value
   }
 
   reverse() {
@@ -157,7 +157,7 @@ class SinglyLinkedList {
 
     this.length--
 
-    return currentHead
+    return currentHead.value
   }
 
   unshift(value) {
