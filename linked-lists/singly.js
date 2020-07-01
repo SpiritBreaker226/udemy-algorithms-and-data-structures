@@ -60,8 +60,6 @@ class SinglyLinkedList {
   pop() {
     if (this.length === 0) return undefined
 
-    this.length--
-
     const currentTail = this.tail
     let preTailNode = null
     let currentNode = this.head
@@ -71,13 +69,15 @@ class SinglyLinkedList {
       currentNode = currentNode.next
     }
 
-    if (this.length === 0) {
+    if (this.length === 1) {
       this.head = null
       this.tail = null
     } else {
       this.tail = preTailNode
       this.tail.next = null
     }
+
+    this.length--
 
     return currentTail
   }
@@ -92,6 +92,7 @@ class SinglyLinkedList {
     }
 
     this.tail = node
+
     this.length++
 
     return this
@@ -145,16 +146,16 @@ class SinglyLinkedList {
   shift() {
     if (this.length === 0) return undefined
 
-    this.length--
-
     const currentHead = this.head
 
-    if (this.length === 0) {
+    if (this.length === 1) {
       this.head = null
       this.tail = null
     } else {
       this.head = this.head.next
     }
+
+    this.length--
 
     return currentHead
   }
@@ -169,6 +170,7 @@ class SinglyLinkedList {
     }
 
     this.head = node
+
     this.length++
 
     return this
