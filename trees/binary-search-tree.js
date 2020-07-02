@@ -20,6 +20,19 @@ class BinarySearchTree {
       : this.find(value, node.right)
   }
 
+  // Instructor solution to compare
+  // find(value) {
+  //   let current = this.root
+
+  //   while (current) {
+  //     if (value === current.value) return current
+
+  //     current = value < current.value ? current.left : current.right
+  //   }
+
+  //   return undefined
+  // }
+
   insert(value, node = this.root) {
     if (!this.root) {
       this.root = new Node(value)
