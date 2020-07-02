@@ -62,5 +62,39 @@ describe('trees', () => {
         expect(bst.root.right.left.value).toEqual(11)
       })
     })
+
+    describe('#find', () => {
+      beforeEach(() => {
+        bst.insert(10)
+        bst.insert(9)
+        bst.insert(12)
+        bst.insert(15)
+        bst.insert(11)
+        bst.insert(22)
+        bst.insert(1)
+      })
+
+      it('should root value of the BST', () => {
+        expect(bst.find(10).value).toEqual(10)
+      })
+
+      it('should return the lowest value', () => {
+        expect(bst.find(1).value).toEqual(1)
+      })
+
+      it('should return the highest value', () => {
+        expect(bst.find(22).value).toEqual(22)
+      })
+
+      it('should return the parent value', () => {
+        expect(bst.find(12).value).toEqual(12)
+      })
+
+      describe('on does not equal values', () => {
+        it('should return null', () => {
+          expect(bst.find(42)).toBeUndefined()
+        })
+      })
+    })
   })
 })

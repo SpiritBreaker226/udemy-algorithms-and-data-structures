@@ -11,6 +11,15 @@ class BinarySearchTree {
     this.root = null
   }
 
+  find(value, node = this.root) {
+    if (!node) return undefined
+    if (value === node.value) return node
+
+    return value < node.value
+      ? this.find(value, node.left)
+      : this.find(value, node.right)
+  }
+
   insert(value, node = this.root) {
     if (!this.root) {
       this.root = new Node(value)
