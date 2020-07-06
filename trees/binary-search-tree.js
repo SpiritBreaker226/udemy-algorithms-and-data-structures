@@ -28,6 +28,21 @@ class BinarySearchTree {
     return visitedNodeValues
   }
 
+  dsfInOrder() {
+    const visitedNodeValues = []
+    const traversal = (node) => {
+      if (node.left) traversal(node.left)
+
+      visitedNodeValues.push(node.value)
+
+      if (node.right) traversal(node.right)
+    }
+
+    traversal(this.root)
+
+    return visitedNodeValues
+  }
+
   dsfPostOrder() {
     const visitedNodeValues = []
     const traversal = (node) => {

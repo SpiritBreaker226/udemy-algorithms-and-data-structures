@@ -125,6 +125,12 @@ describe('trees', () => {
             expect(bst.dsfPostOrder()).toEqual([3, 8, 6, 20, 15, 10])
           })
         })
+
+        describe('#dsfInOrder', () => {
+          it('should return every value in a InOrder style', () => {
+            expect(bst.dsfInOrder()).toEqual([3, 6, 8, 10, 15, 20])
+          })
+        })
       })
     })
   })
