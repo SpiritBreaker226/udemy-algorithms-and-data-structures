@@ -96,5 +96,22 @@ describe('trees', () => {
         })
       })
     })
+
+    describe('for tree traversal', () => {
+      beforeEach(() => {
+        bst.insert(10)
+        bst.insert(6)
+        bst.insert(3)
+        bst.insert(8)
+        bst.insert(15)
+        bst.insert(20)
+      })
+
+      describe('#bfs', () => {
+        it('should return every value in a BFS style', () => {
+          expect(bst.bfs()).toEqual([10, 6, 15, 3, 8, 20])
+        })
+      })
+    })
   })
 })

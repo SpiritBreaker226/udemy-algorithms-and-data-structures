@@ -11,6 +11,23 @@ class BinarySearchTree {
     this.root = null
   }
 
+  bfs() {
+    let node = this.root
+    const queue = [node]
+    const visitedNodeValues = []
+
+    while (queue.length > 0) {
+      node = queue.shift()
+
+      visitedNodeValues.push(node.value)
+
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
+    }
+
+    return visitedNodeValues
+  }
+
   find(value, node = this.root) {
     if (!node) return undefined
     if (value === node.value) return node
