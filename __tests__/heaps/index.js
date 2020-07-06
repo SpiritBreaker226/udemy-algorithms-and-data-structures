@@ -5,7 +5,7 @@ describe('heaps', () => {
     let mbh = null
 
     beforeEach(() => {
-      mbh = new MaxBinaryHeap()
+      mbh = new MaxBinaryHeap([41, 39, 33, 18, 27])
     })
 
     describe('#insert', () => {
@@ -14,7 +14,7 @@ describe('heaps', () => {
         mbh.insert(9)
         mbh.insert(12)
 
-        expect(mbh.values).toEqual([12, 9, 10])
+        expect(mbh.values).toEqual([41, 39, 33, 18, 27, 10, 9, 12])
       })
 
       describe('on equal values', () => {
@@ -24,7 +24,7 @@ describe('heaps', () => {
           mbh.insert(12)
           mbh.insert(12)
 
-          expect(mbh.values).toEqual([12, 12, 10, 9])
+          expect(mbh.values).toEqual([41, 39, 33, 18, 27, 10, 9, 12, 12])
         })
       })
 
@@ -35,9 +35,24 @@ describe('heaps', () => {
         mbh.insert(15)
         mbh.insert(11)
         mbh.insert(22)
+        mbh.insert(42)
         mbh.insert(1)
 
-        expect(mbh.values).toEqual([22, 12, 15, 9, 11, 10, 1])
+        expect(mbh.values).toEqual([
+          42,
+          39,
+          41,
+          18,
+          27,
+          33,
+          9,
+          12,
+          15,
+          11,
+          22,
+          10,
+          1,
+        ])
       })
     })
   })
