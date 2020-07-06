@@ -28,6 +28,20 @@ class BinarySearchTree {
     return visitedNodeValues
   }
 
+  dsfPreOrder() {
+    const visitedNodeValues = []
+    const traversal = (node) => {
+      visitedNodeValues.push(node.value)
+
+      if (node.left) traversal(node.left)
+      if (node.right) traversal(node.right)
+    }
+
+    traversal(this.root)
+
+    return visitedNodeValues
+  }
+
   find(value, node = this.root) {
     if (!node) return undefined
     if (value === node.value) return node

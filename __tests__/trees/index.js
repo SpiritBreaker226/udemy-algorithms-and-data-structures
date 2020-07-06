@@ -112,6 +112,14 @@ describe('trees', () => {
           expect(bst.bfs()).toEqual([10, 6, 15, 3, 8, 20])
         })
       })
+
+      describe('for Depth-first Search (DFS)', () => {
+        describe('#dsfPreOrder', () => {
+          it('should return every value in a PreOrder style', () => {
+            expect(bst.dsfPreOrder()).toEqual([10, 6, 3, 8, 15, 20])
+          })
+        })
+      })
     })
   })
 })
