@@ -1,4 +1,5 @@
 const MaxBinaryHeap = require('../../heaps/max-binary-heap')
+const PriorityQueue = require('../../heaps/priority-queue')
 
 describe('heaps', () => {
   describe('for Binary Heap', () => {
@@ -111,6 +112,28 @@ describe('heaps', () => {
 
         expect(mbh.extractMax()).toEqual(12)
         expect(mbh.values).toEqual([])
+      })
+    })
+  })
+
+  describe('for Priority Queue', () => {
+    let queue = null
+
+    beforeEach(() => {
+      queue = new PriorityQueue()
+    })
+
+    describe('#enqueue', () => {
+      it('should return the values', () => {
+        queue.enqueue('flu', 3)
+        queue.enqueue('gunshot', 1)
+        queue.enqueue('break leg', 2)
+        queue.enqueue('fall off roof', 1)
+
+        expect(queue.values[0].priority).toEqual(1)
+        expect(queue.values[1].priority).toEqual(1)
+        expect(queue.values[2].priority).toEqual(2)
+        expect(queue.values[3].priority).toEqual(3)
       })
     })
   })
