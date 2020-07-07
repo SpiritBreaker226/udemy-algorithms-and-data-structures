@@ -42,7 +42,7 @@ describe('hashes', () => {
       it('should get one element to hash table', () => {
         const colour = hash.get('black')
 
-        expect(colour[0]).toEqual('black')
+        expect(colour).toEqual('#000')
       })
 
       it('should get undefiend when no element is found', () => {
@@ -61,7 +61,7 @@ describe('hashes', () => {
 
           const colour = hash.get('white')
 
-          expect(colour[0]).toEqual('white')
+          expect(colour).toEqual('#fff')
         })
       })
     })

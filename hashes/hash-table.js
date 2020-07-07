@@ -14,7 +14,7 @@ class HashTable {
       ) {
         const keyPair = this.keyMap[index][hashIndex]
 
-        if (keyPair[0] === key) return keyPair
+        if (keyPair[0] === key) return keyPair[1]
       }
     }
 
