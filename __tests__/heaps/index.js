@@ -55,5 +55,63 @@ describe('heaps', () => {
         ])
       })
     })
+
+    describe('#extractMax', () => {
+      it('should return the values', () => {
+        const oldRoot = mbh.extractMax()
+
+        expect(oldRoot).toEqual(41)
+        expect(mbh.values).toEqual([39, 27, 33, 18])
+      })
+
+      it('should return the values for a larger heap', () => {
+        mbh = new MaxBinaryHeap([
+          42,
+          39,
+          41,
+          18,
+          27,
+          33,
+          9,
+          12,
+          15,
+          11,
+          22,
+          10,
+          1,
+        ])
+
+        expect(mbh.extractMax()).toEqual(42)
+        expect(mbh.values).toEqual([
+          41,
+          39,
+          33,
+          18,
+          27,
+          10,
+          9,
+          12,
+          15,
+          11,
+          22,
+          1,
+        ])
+
+        expect(mbh.extractMax()).toEqual(41)
+        expect(mbh.values).toEqual([39, 27, 33, 18, 22, 10, 9, 12, 15, 11, 1])
+
+        expect(mbh.extractMax()).toEqual(39)
+        expect(mbh.values).toEqual([33, 27, 10, 18, 22, 1, 9, 12, 15, 11])
+      })
+    })
+
+    describe('on last element', () => {
+      it('should be empty', () => {
+        mbh = new MaxBinaryHeap([12])
+
+        expect(mbh.extractMax()).toEqual(12)
+        expect(mbh.values).toEqual([])
+      })
+    })
   })
 })
