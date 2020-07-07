@@ -136,5 +136,58 @@ describe('heaps', () => {
         expect(queue.values[3].priority).toEqual(3)
       })
     })
+
+    describe('#dequeue', () => {
+      describe('with a queue', () => {
+        beforeEach(() => {
+          queue.enqueue('flu', 3)
+          queue.enqueue('break leg', 2)
+          queue.enqueue('fall off roof', 1)
+          queue.enqueue('flu', 3)
+          queue.enqueue('gunshot', 1)
+        })
+
+        it('should remove root and return it', () => {
+          expect(queue.dequeue()).toEqual({
+            value: 'fall off roof',
+            priority: 1,
+          })
+
+          expect(queue.values[0].priority).toEqual(1)
+          expect(queue.values[1].priority).toEqual(3)
+          expect(queue.values[2].priority).toEqual(2)
+          expect(queue.values[3].priority).toEqual(3)
+        })
+
+        it('should remove and return root each time', () => {
+          queue.dequeue()
+
+          expect(queue.dequeue()).toEqual({
+            value: 'gunshot',
+            priority: 1,
+          })
+          expect(queue.values[0].priority).toEqual(2)
+          expect(queue.values[1].priority).toEqual(3)
+          expect(queue.values[2].priority).toEqual(3)
+
+          expect(queue.dequeue()).toEqual({
+            value: 'break leg',
+            priority: 2,
+          })
+          expect(queue.values[0].priority).toEqual(3)
+          expect(queue.values[1].priority).toEqual(3)
+        })
+      })
+
+      describe('on last element', () => {
+        it('should be empty', () => {
+          queue.enqueue('flu', 3)
+
+          queue.dequeue()
+
+          expect(queue.values).toEqual([])
+        })
+      })
+    })
   })
 })
