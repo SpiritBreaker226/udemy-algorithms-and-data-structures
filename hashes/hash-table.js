@@ -3,6 +3,14 @@ class HashTable {
     this.keyMap = new Array(size)
   }
 
+  set(key, value) {
+    const index = this._hash(key)
+
+    if (!this.keyMap[index]) this.keyMap[index] = []
+
+    this.keyMap[index].push([key, value])
+  }
+
   _hash(key) {
     let total = 0
     const weiredPrime = 31
