@@ -3,6 +3,24 @@ class HashTable {
     this.keyMap = new Array(size)
   }
 
+  get(key) {
+    const index = this._hash(key)
+
+    if (this.keyMap[index]) {
+      for (
+        let hashIndex = 0;
+        hashIndex < this.keyMap[index].length;
+        hashIndex++
+      ) {
+        const keyPair = this.keyMap[index][hashIndex]
+
+        if (keyPair[0] === key) return keyPair
+      }
+    }
+
+    return undefined
+  }
+
   set(key, value) {
     const index = this._hash(key)
 

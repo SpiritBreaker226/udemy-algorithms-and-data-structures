@@ -24,5 +24,46 @@ describe('hashes', () => {
         })
       })
     })
+
+    describe('#get', () => {
+      let hash = null
+
+      beforeEach(() => {
+        hash = new HashTable()
+
+        hash.set('cyan', '#00FFFF')
+        hash.set('orange', '#FF4500')
+        hash.set('gray', '#999')
+        hash.set('white', '#fff')
+        hash.set('black', '#000')
+        hash.set('red', '#FF0000')
+      })
+
+      it('should get one element to hash table', () => {
+        const colour = hash.get('black')
+
+        expect(colour[0]).toEqual('black')
+      })
+
+      it('should get undefiend when no element is found', () => {
+        expect(hash.get('green')).toBeUndefined()
+      })
+
+      describe('on collations', () => {
+        it('should get red on a merge collotion', () => {
+          hash = new HashTable(2)
+
+          hash.set('red', '#FF0000')
+          hash.set('white', '#fff')
+          hash.set('black', '#000')
+
+          expect(hash.keyMap[1].length).toEqual(3)
+
+          const colour = hash.get('white')
+
+          expect(colour[0]).toEqual('white')
+        })
+      })
+    })
   })
 })
