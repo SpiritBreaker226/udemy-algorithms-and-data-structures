@@ -21,6 +21,21 @@ class HashTable {
     return undefined
   }
 
+  keys() {
+    const keyMap = []
+    const keys = []
+
+    for (let index = 0; index < this.keyMap.length; index++) {
+      if (this.keyMap[index]) {
+        keyMap.push(...this.keyMap[index])
+      }
+    }
+
+    keyMap.forEach((keyPair) => keys.push(keyPair[0]))
+
+    return keys
+  }
+
   set(key, value) {
     const index = this._hash(key)
 

@@ -65,5 +65,27 @@ describe('hashes', () => {
         })
       })
     })
+
+    describe('#keys', () => {
+      it('should get one element to hash table', () => {
+        const hash = new HashTable()
+
+        hash.set('cyan', '#00FFFF')
+        hash.set('orange', '#FF4500')
+        hash.set('gray', '#999')
+        hash.set('white', '#fff')
+        hash.set('black', '#000')
+        hash.set('red', '#FF0000')
+
+        expect(hash.keys()).toEqual([
+          'white',
+          'black',
+          'gray',
+          'red',
+          'cyan',
+          'orange',
+        ])
+      })
+    })
   })
 })
