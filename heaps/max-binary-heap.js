@@ -23,6 +23,60 @@ class MaxBinaryHeap {
     return root
   }
 
+  // Instructor solution to compare
+  // extractMax() {
+  //   //  Edget case come back to this
+  //   const max = this.values[0]
+  //   const end = this.values.pop()
+
+  //   if (this.values.length > 0) {
+  //     this.values[0] = end
+  //     this.sinkDown()
+  //   }
+
+  //   return max
+  // }
+
+  // Instructor solution to compare use with extractMax()
+  // sinkDown() {
+  //   let index = 0
+  //   const length = this.values.length
+  //   const element = this.values[0]
+
+  //   while (true) {
+  //     let leftIndex = index * 2 + 1
+  //     let rightIndex = index * 2 + 2
+  //     let leftChild
+  //     let rightChild
+  //     let swap = null
+
+  //     if (leftIndex < length) {
+  //       leftChild = this.values[leftIndex]
+
+  //       if (leftChild > element) {
+  //         swap = leftIndex
+  //       }
+  //     }
+
+  //     if (rightIndex < length) {
+  //       rightChild = this.values[rightIndex]
+
+  //       if (
+  //         (swap === null && rightChild > element) ||
+  //         (swap !== null && rightChild > leftChild)
+  //       ) {
+  //         swap = rightIndex
+  //       }
+  //     }
+
+  //     if (swap === null) break
+
+  //     this.swap(swap, index)
+
+  //     index = swap
+  //   }
+  // }
+
   bubbleUp(value) {
     let index = this.values.length - 1
 
