@@ -44,6 +44,25 @@ class HashTable {
     this.keyMap[index].push([key, value])
   }
 
+  values() {
+    const keyMap = []
+    let values = []
+
+    for (let index = 0; index < this.keyMap.length; index++) {
+      if (this.keyMap[index]) {
+        keyMap.push(...this.keyMap[index])
+      }
+    }
+
+    keyMap.forEach((keyPair) => {
+      if (!values.includes(keyPair[1])) {
+        values.push(keyPair[1])
+      }
+    })
+
+    return values
+  }
+
   _hash(key) {
     let total = 0
     const weiredPrime = 31
