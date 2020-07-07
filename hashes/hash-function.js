@@ -1,10 +1,12 @@
 function hash(key, arrayLength) {
   let total = 0
+  const weiredPrime = 31
 
-  for (const char of key) {
-    // map "a" to 1, "b" to 2, "c" to 3, etc
-    let value = char.charCodeAt(0) - 96
-    total = (total + value) % arrayLength
+  for (let index = 0; index < Math.min(key.length, 100); index++) {
+    const char = key[index]
+    const value = char.charCodeAt(0) - 96
+
+    total = (total * weiredPrime + value) % arrayLength
   }
 
   return total
