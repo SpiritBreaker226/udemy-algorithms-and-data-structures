@@ -28,5 +28,16 @@ describe('graphs', () => {
         })
       })
     })
+
+    describe('#addEdge', () => {
+      it('should add one node to the adjacency list', () => {
+        graph.addVertex('Tokyo')
+        graph.addVertex('Toronto')
+        graph.addEdge('Tokyo', 'Toronto')
+
+        expect(graph.adjacencyList.Tokyo).toEqual(['Toronto'])
+        expect(graph.adjacencyList.Toronto).toEqual(['Tokyo'])
+      })
+    })
   })
 })
