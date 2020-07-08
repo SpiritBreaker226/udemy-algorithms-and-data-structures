@@ -54,5 +54,21 @@ describe('graphs', () => {
         expect(graph.adjacencyList.Toronto).toEqual(['Dallas'])
       })
     })
+
+    describe('#removeVertex', () => {
+      it('should remove vertex from adjacency list', () => {
+        graph.addVertex('Tokyo')
+        graph.addVertex('Dallas')
+        graph.addVertex('Toronto')
+        graph.addEdge('Tokyo', 'Toronto')
+        graph.addEdge('Tokyo', 'Dallas')
+        graph.addEdge('Toronto', 'Dallas')
+        graph.removeVertex('Tokyo')
+
+        expect(graph.adjacencyList.Tokyo).toBeUndefined()
+        expect(graph.adjacencyList.Dallas).toEqual(['Toronto'])
+        expect(graph.adjacencyList.Toronto).toEqual(['Dallas'])
+      })
+    })
   })
 })

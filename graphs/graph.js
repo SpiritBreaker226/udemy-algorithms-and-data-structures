@@ -28,6 +28,14 @@ class Graph {
       (vertex) => vertex != vertex1
     )
   }
+
+  removeVertex(removingVertex) {
+    this.adjacencyList[removingVertex].forEach((vertex) => {
+      this.removeEdge(removingVertex, vertex)
+    })
+
+    delete this.adjacencyList[removingVertex]
+  }
 }
 
 module.exports = Graph
