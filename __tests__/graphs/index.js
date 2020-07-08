@@ -30,13 +30,28 @@ describe('graphs', () => {
     })
 
     describe('#addEdge', () => {
-      it('should add one node to the adjacency list', () => {
+      it('should add edges to the adjacency list', () => {
         graph.addVertex('Tokyo')
         graph.addVertex('Toronto')
         graph.addEdge('Tokyo', 'Toronto')
 
         expect(graph.adjacencyList.Tokyo).toEqual(['Toronto'])
         expect(graph.adjacencyList.Toronto).toEqual(['Tokyo'])
+      })
+    })
+
+    describe('#removeEdge', () => {
+      it('should remove edges from adjacency list', () => {
+        graph.addVertex('Tokyo')
+        graph.addVertex('Dallas')
+        graph.addVertex('Toronto')
+        graph.addEdge('Tokyo', 'Toronto')
+        graph.addEdge('Tokyo', 'Dallas')
+        graph.addEdge('Toronto', 'Dallas')
+        graph.removeEdge('Tokyo', 'Toronto')
+
+        expect(graph.adjacencyList.Tokyo).toEqual(['Dallas'])
+        expect(graph.adjacencyList.Toronto).toEqual(['Dallas'])
       })
     })
   })
