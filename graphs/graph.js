@@ -20,6 +20,30 @@ class Graph {
     return vertex
   }
 
+  bfs(startingVertex) {
+    const queue = [startingVertex]
+    const visited = {}
+    const results = []
+    let vertex = ''
+
+    visited[startingVertex] = true
+
+    while (queue.length > 0) {
+      vertex = queue.shift()
+      results.push(vertex)
+
+      this.adjacencyList[vertex].forEach((neighborVertex) => {
+        if (!visited[neighborVertex]) {
+          visited[neighborVertex] = true
+
+          queue.push(neighborVertex)
+        }
+      })
+    }
+
+    return results
+  }
+
   dfsIterative(startingVertex) {
     const stack = [startingVertex]
     const visited = {}

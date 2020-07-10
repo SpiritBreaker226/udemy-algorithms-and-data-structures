@@ -71,7 +71,7 @@ describe('graphs', () => {
       })
     })
 
-    describe('using Depth First Search (DFS)', () => {
+    describe('Graph Traversal', () => {
       beforeEach(() => {
         graph.addVertex('Tokyo')
         graph.addVertex('Dallas')
@@ -89,29 +89,46 @@ describe('graphs', () => {
         graph.addEdge('Vancouver', 'Houston')
       })
 
-      describe('#dfsRecursive', () => {
-        it('should return all vertexes in the graph, recursive', () => {
-          expect(graph.dfsRecursive('Tokyo')).toEqual([
-            'Tokyo',
-            'Dallas',
-            'New York',
-            'Vancouver',
-            'Toronto',
-            'Houston',
-          ])
+      describe('using Depth First Search (DFS)', () => {
+        describe('#dfsRecursive', () => {
+          it('should return all vertexes in the graph, recursive', () => {
+            expect(graph.dfsRecursive('Tokyo')).toEqual([
+              'Tokyo',
+              'Dallas',
+              'New York',
+              'Vancouver',
+              'Toronto',
+              'Houston',
+            ])
+          })
+        })
+
+        describe('#dfsIterative', () => {
+          it('should return all vertexes in the graph, iterative', () => {
+            expect(graph.dfsIterative('Tokyo')).toEqual([
+              'Tokyo',
+              'Toronto',
+              'Vancouver',
+              'Houston',
+              'New York',
+              'Dallas',
+            ])
+          })
         })
       })
 
-      describe('#dfsIterative', () => {
-        it('should return all vertexes in the graph, iterative', () => {
-          expect(graph.dfsIterative('Tokyo')).toEqual([
-            'Tokyo',
-            'Toronto',
-            'Vancouver',
-            'Houston',
-            'New York',
-            'Dallas',
-          ])
+      describe('using Breadth-First Search (BFS)', () => {
+        describe('#bfs', () => {
+          it('should return all vertexes in the graph, recursive', () => {
+            expect(graph.bfs('Tokyo')).toEqual([
+              'Tokyo',
+              'Dallas',
+              'Toronto',
+              'New York',
+              'Vancouver',
+              'Houston',
+            ])
+          })
         })
       })
     })
