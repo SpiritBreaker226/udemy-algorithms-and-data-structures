@@ -90,7 +90,7 @@ describe('graphs', () => {
       })
 
       describe('#dfsRecursive', () => {
-        it('should return all vertexes in the graph', () => {
+        it('should return all vertexes in the graph, recursive', () => {
           expect(graph.dfsRecursive('Tokyo')).toEqual([
             'Tokyo',
             'Dallas',
@@ -98,6 +98,19 @@ describe('graphs', () => {
             'Vancouver',
             'Toronto',
             'Houston',
+          ])
+        })
+      })
+
+      describe('#dfsIterative', () => {
+        it('should return all vertexes in the graph, iterative', () => {
+          expect(graph.dfsIterative('Tokyo')).toEqual([
+            'Tokyo',
+            'Toronto',
+            'Vancouver',
+            'Houston',
+            'New York',
+            'Dallas',
           ])
         })
       })

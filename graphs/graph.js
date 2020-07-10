@@ -20,6 +20,30 @@ class Graph {
     return vertex
   }
 
+  dfsIterative(startingVertex) {
+    const stack = [startingVertex]
+    const visited = {}
+    const results = []
+    let vertex = ''
+
+    visited[startingVertex] = true
+
+    while (stack.length > 0) {
+      vertex = stack.pop()
+      results.push(vertex)
+
+      this.adjacencyList[vertex].forEach((neighborVertex) => {
+        if (!visited[neighborVertex]) {
+          visited[neighborVertex] = true
+
+          stack.push(neighborVertex)
+        }
+      })
+    }
+
+    return results
+  }
+
   dfsRecursive(startingVertex) {
     const results = []
     const visited = {}
