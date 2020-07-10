@@ -20,6 +20,29 @@ class Graph {
     return vertex
   }
 
+  dfsRecursive(startingVertex) {
+    const results = []
+    const visited = {}
+    const dfs = (vertex) => {
+      if (!vertex) return
+
+      results.push(vertex)
+      visited[vertex] = true
+
+      this.adjacencyList[vertex].forEach((neighborVertex) => {
+        if (!visited[neighborVertex]) {
+          dfs(neighborVertex)
+        }
+      })
+
+      return
+    }
+
+    dfs(startingVertex)
+
+    return results
+  }
+
   removeEdge(vertex1, vertex2) {
     this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
       (vertex) => vertex != vertex2

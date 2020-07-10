@@ -70,5 +70,37 @@ describe('graphs', () => {
         expect(graph.adjacencyList.Toronto).toEqual(['Dallas'])
       })
     })
+
+    describe('using Depth First Search (DFS)', () => {
+      beforeEach(() => {
+        graph.addVertex('Tokyo')
+        graph.addVertex('Dallas')
+        graph.addVertex('Toronto')
+        graph.addVertex('New York')
+        graph.addVertex('Vancouver')
+        graph.addVertex('Houston')
+
+        graph.addEdge('Tokyo', 'Dallas')
+        graph.addEdge('Tokyo', 'Toronto')
+        graph.addEdge('Dallas', 'New York')
+        graph.addEdge('Toronto', 'Vancouver')
+        graph.addEdge('New York', 'Vancouver')
+        graph.addEdge('New York', 'Houston')
+        graph.addEdge('Vancouver', 'Houston')
+      })
+
+      describe('#dfsRecursive', () => {
+        it('should return all vertexes in the graph', () => {
+          expect(graph.dfsRecursive('Tokyo')).toEqual([
+            'Tokyo',
+            'Dallas',
+            'New York',
+            'Vancouver',
+            'Toronto',
+            'Houston',
+          ])
+        })
+      })
+    })
   })
 })
