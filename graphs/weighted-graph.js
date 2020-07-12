@@ -81,43 +81,40 @@ class WeightedGraph {
         break
       }
 
-      this.adjacencyList[smallest].forEach((neighborVertex) => {
-        const sum = neighborVertex.weight + distances[smallest]
+      if (smallest && distances[smallest] !== Infinity) {
+        this.adjacencyList[smallest].forEach((neighborVertex) => {
+          const sum = neighborVertex.weight + distances[smallest]
 
-        if (
-          distances[neighborVertex.node] === Infinity ||
-          sum < distances[neighborVertex.node]
-        ) {
-          distances[neighborVertex.node] = sum
-          previous[neighborVertex.node] = smallest
+          if (sum < distances[neighborVertex.node]) {
+            distances[neighborVertex.node] = sum
+            previous[neighborVertex.node] = smallest
 
-          queue.enqueue(neighborVertex.node, sum)
-        }
-      })
+            queue.enqueue(neighborVertex.node, sum)
+          }
+        })
 
-      // Instructor solution to compare
-      // if (smallest && distances[smallest] !== Infinity) {
-      //   for (let neighbor in this.adjacencyList[smallest]) {
-      //     // find neighboring node
-      //     let nextNode = this.adjacencyList[smallest][neighbor]
+        // Instructor solution to compare
+        //   for (let neighbor in this.adjacencyList[smallest]) {
+        //     // find neighboring node
+        //     let nextNode = this.adjacencyList[smallest][neighbor]
 
-      //     //  caluclate new distance to neighbor node
-      //     let candidate = distances[smallest] + nextNode.weight
+        //     //  caluclate new distance to neighbor node
+        //     let candidate = distances[smallest] + nextNode.weight
 
-      //     let nextNeighbor = nextNode.node
+        //     let nextNeighbor = nextNode.node
 
-      //     if (candidate < distances[nextNeighbor]) {
-      //       // updateing new smallest distance to neighbor
-      //       distances[nextNeighbor] = candidate
+        //     if (candidate < distances[nextNeighbor]) {
+        //       // updateing new smallest distance to neighbor
+        //       distances[nextNeighbor] = candidate
 
-      //       // updating previous - How we got to neighbor
-      //       previous[nextNeighbor] = smallest
+        //       // updating previous - How we got to neighbor
+        //       previous[nextNeighbor] = smallest
 
-      //       // enqueue in priority queue with new priority
-      //       queue.enqueue(nextNeighbor, candidate)
-      //     }
-      //   }
-      // }
+        //       // enqueue in priority queue with new priority
+        //       queue.enqueue(nextNeighbor, candidate)
+        //     }
+        //   }
+      }
     }
 
     return {
