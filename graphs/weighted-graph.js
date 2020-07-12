@@ -84,6 +84,30 @@ class WeightedGraph {
           queue.enqueue(neighborVertex.node, sum)
         }
       })
+
+      // Instructor solution to compare
+      // if (smallest && distances[smallest] !== Infinity) {
+      //   for (let neighbor in this.adjacencyList[smallest]) {
+      //     // find neighboring node
+      //     let nextNode = this.adjacencyList[smallest][neighbor]
+
+      //     //  caluclate new distance to neighbor node
+      //     let candidate = distances[smallest] + nextNode.weight
+
+      //     let nextNeighbor = nextNode.node
+
+      //     if (candidate < distances[nextNeighbor]) {
+      //       // updateing new smallest distance to neighbor
+      //       distances[nextNeighbor] = candidate
+
+      //       // updating previous - How we got to neighbor
+      //       previous[nextNeighbor] = smallest
+
+      //       // enqueue in priority queue with new priority
+      //       queue.enqueue(nextNeighbor, candidate)
+      //     }
+      //   }
+      // }
     }
 
     return previous
