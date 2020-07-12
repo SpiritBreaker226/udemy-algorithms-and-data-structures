@@ -236,7 +236,9 @@ describe('graphs', () => {
           graph.addEdge('New York', 'Houston', 1)
           graph.addEdge('Houston', 'Vancouver', 1)
 
-          expect(graph.shortestPath('Tokyo', 'Vancouver')).toEqual({
+          const path = graph.shortestPath('Tokyo', 'Vancouver')
+
+          expect(path.previous).toEqual({
             Tokyo: null,
             Dallas: 'Tokyo',
             Toronto: 'Tokyo',
@@ -244,6 +246,14 @@ describe('graphs', () => {
             Vancouver: 'Houston',
             Houston: 'New York',
           })
+
+          expect(path.shortestPath).toEqual([
+            'Tokyo',
+            'Toronto',
+            'New York',
+            'Houston',
+            'Vancouver',
+          ])
         })
       })
     })

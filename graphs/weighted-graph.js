@@ -57,6 +57,7 @@ class WeightedGraph {
     const previous = {}
     const queue = new PriorityQueue()
 
+    let shortestPath = [] // to return at end
     let smallest = {}
 
     Object.keys(this.adjacencyList).forEach((vertex) => {
@@ -69,7 +70,16 @@ class WeightedGraph {
     while (queue.values.length > 0) {
       smallest = queue.dequeue().value
 
-      if (smallest === endVertex) break
+      if (smallest === endVertex) {
+        while (previous[smallest]) {
+          shortestPath.push(smallest)
+          smallest = previous[smallest]
+        }
+
+        shortestPath.push(startVertex)
+
+        break
+      }
 
       this.adjacencyList[smallest].forEach((neighborVertex) => {
         const sum = neighborVertex.weight + distances[smallest]
@@ -110,7 +120,10 @@ class WeightedGraph {
       // }
     }
 
-    return previous
+    return {
+      previous,
+      shortestPath: shortestPath.reverse(),
+    }
   }
 }
 
