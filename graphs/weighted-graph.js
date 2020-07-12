@@ -1,3 +1,5 @@
+const PriorityQueue = require('../heaps/priority-queue-array')
+
 class WeightedGraph {
   constructor() {
     /**
@@ -48,6 +50,43 @@ class WeightedGraph {
     })
 
     delete this.adjacencyList[removingVertex]
+  }
+
+  shortestPath(startVertex, endVertex) {
+    const distances = {}
+    const previous = {}
+    const queue = new PriorityQueue()
+
+    let smallest = {}
+
+    Object.keys(this.adjacencyList).forEach((vertex) => {
+      distances[vertex] = startVertex === vertex ? 0 : Infinity
+      previous[vertex] = null
+    })
+
+    queue.enqueue(startVertex, 0)
+
+    while (queue.values.length > 0) {
+      smallest = queue.dequeue().value
+
+      if (smallest === endVertex) break
+
+      this.adjacencyList[smallest].forEach((neighborVertex) => {
+        const sum = neighborVertex.weight + distances[smallest]
+
+        if (
+          distances[neighborVertex.node] === Infinity ||
+          sum < distances[neighborVertex.node]
+        ) {
+          distances[neighborVertex.node] = sum
+          previous[neighborVertex.node] = smallest
+
+          queue.enqueue(neighborVertex.node, sum)
+        }
+      })
+    }
+
+    return previous
   }
 }
 

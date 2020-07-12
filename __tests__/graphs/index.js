@@ -216,5 +216,36 @@ describe('graphs', () => {
         ])
       })
     })
+
+    describe("Dijkstra's Algorithm", () => {
+      describe('#shortestPath', () => {
+        it('should reutrn shotestPath From Tokyo to Vancouver', () => {
+          graph.addVertex('Tokyo')
+          graph.addVertex('Dallas')
+          graph.addVertex('Toronto')
+          graph.addVertex('New York')
+          graph.addVertex('Vancouver')
+          graph.addVertex('Houston')
+
+          graph.addEdge('Tokyo', 'Dallas', 4)
+          graph.addEdge('Tokyo', 'Toronto', 2)
+          graph.addEdge('Dallas', 'Vancouver', 3)
+          graph.addEdge('Toronto', 'New York', 2)
+          graph.addEdge('Toronto', 'Houston', 4)
+          graph.addEdge('New York', 'Vancouver', 3)
+          graph.addEdge('New York', 'Houston', 1)
+          graph.addEdge('Houston', 'Vancouver', 1)
+
+          expect(graph.shortestPath('Tokyo', 'Vancouver')).toEqual({
+            Tokyo: null,
+            Dallas: 'Tokyo',
+            Toronto: 'Tokyo',
+            'New York': 'Toronto',
+            Vancouver: 'Houston',
+            Houston: 'New York',
+          })
+        })
+      })
+    })
   })
 })
