@@ -1,4 +1,4 @@
-const PriorityQueue = require('../heaps/priority-queue-array')
+const PriorityQueue = require('../heaps/priority-queue')
 
 class WeightedGraph {
   constructor() {
