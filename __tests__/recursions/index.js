@@ -95,6 +95,10 @@ describe('recursions', () => {
       it('should be 9227465 for fib 35', () => {
         expect(fibDynamicProgramming(35)).toEqual(9227465)
       })
+
+      it('should be 354224848179262000000 for fib 100', () => {
+        expect(fibDynamicProgramming(100)).toEqual(354224848179262000000)
+      })
     })
   })
 })
