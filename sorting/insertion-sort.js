@@ -41,12 +41,10 @@ function insertionSort(numbers) {
     let innerIndex = index - 1
     const currentVal = numbers[index]
 
-    for (
-      innerIndex;
-      innerIndex >= 0 && numbers[innerIndex] > currentVal;
-      innerIndex--
-    ) {
+    while (innerIndex >= 0 && numbers[innerIndex] > currentVal) {
       numbers[innerIndex + 1] = numbers[innerIndex]
+
+      innerIndex--
     }
 
     numbers[innerIndex + 1] = currentVal
